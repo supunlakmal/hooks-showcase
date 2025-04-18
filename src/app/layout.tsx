@@ -5,7 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "next-themes";
 import "../styles/index.css";
 import "../styles/prism-vsc-dark-plus.css";
-
+import Script from 'next/script'; // Import the Script component
 import PreLoader from "@/components/Common/PreLoader";
 import { useEffect, useState } from "react";
 
@@ -29,6 +29,14 @@ export default function RootLayout({
       <head />
 
       <body>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=GTM-NH4TFZQS`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         {loading ? (
           <PreLoader />
         ) : (
