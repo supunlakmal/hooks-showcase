@@ -76,6 +76,6 @@ body {
   @apply mb-2 mt-10 text-2xl font-bold text-dark dark:text-white sm:text-[28px] sm:leading-[40px];
 }
 
-.blog-details pre code {
+/* .blog-details pre code {
   @apply text-base leading-relaxed text-body-color dark:text-dark-6;
-}
+} */

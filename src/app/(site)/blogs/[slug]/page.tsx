@@ -3,7 +3,7 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { hookNames } from "@/const/const";
 import { fetchMarkdownContent, getAllPosts } from "@/utils/markdown";
 import markdownToHtml from "@/utils/markdownToHtml";
-
+import 'highlight.js/styles/github.css';
 type Props = {
   params: Promise<{ slug: string }>;
 };
