@@ -77,13 +77,13 @@ export default async function Post({ params }: Props) {
 
   return (
     <>
-      <Breadcrumb pageName="Blog Details" />
+      <Breadcrumb pageName={post.title} />
 
       <section className="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4">
-              <div
+              {/* <div
                 className="wow fadeInUp relative z-20 mb-[60px] h-[300px] overflow-hidden rounded md:h-[400px] lg:h-[500px]"
                 data-wow-delay=".1s"
               >
@@ -166,7 +166,7 @@ export default async function Post({ params }: Props) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="-mx-4 flex flex-wrap">
                 <div className="w-full px-4 lg:w-8/12">
                   <div className="blog-details xl:pr-10">
@@ -175,9 +175,9 @@ export default async function Post({ params }: Props) {
                 </div>
                 <div className="w-full px-4 lg:w-4/12">
                   <div>
-                    <Newsletter />
+                    {/* <Newsletter /> */}
 
-                    <div className="-mx-4 mb-8 flex flex-wrap">
+                    {/* <div className="-mx-4 mb-8 flex flex-wrap">
                       <div className="w-full px-4">
                         <h2
                           className="wow fadeInUp relative pb-5 text-2xl font-semibold text-dark dark:text-white sm:text-[28px]"
@@ -195,9 +195,9 @@ export default async function Post({ params }: Props) {
                           name={blog?.author}
                         />
                       ))}
-                    </div>
+                    </div> */}
 
-                    <div
+                    {/* <div
                       className="wow fadeInUp mb-12 overflow-hidden rounded"
                       data-wow-delay=".1s"
                     >
@@ -208,7 +208,7 @@ export default async function Post({ params }: Props) {
                         width={408}
                         height={254}
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
