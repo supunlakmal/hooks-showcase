@@ -128,11 +128,11 @@ const Header = () => {
                       }`}
                   />
                 </button>
-                {/* <nav
+                <nav
                   id="navbarCollapse"
                   className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark-2 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:dark:bg-transparent ${navbarOpen
-                      ? "visibility top-full opacity-100"
-                      : "invisible top-[120%] opacity-0"
+                    ? "visibility top-full opacity-100"
+                    : "invisible top-[120%] opacity-0"
                     }`}
                 >
                   <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12">
@@ -154,8 +154,8 @@ const Header = () => {
                               scroll={false}
                               href={menuItem.path}
                               className={`ud-menu-scroll flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6 ${sticky
-                                  ? "text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary"
-                                  : "text-body-color dark:text-white lg:text-white"
+                                ? "text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary"
+                                : "text-body-color dark:text-white lg:text-white"
                                 } ${pathUrl === menuItem?.path &&
                                 sticky &&
                                 "!text-primary"
@@ -194,8 +194,8 @@ const Header = () => {
                             <button
                               onClick={() => handleSubmenu(index)}
                               className={`ud-menu-scroll flex items-center justify-between py-2 text-base lg:inline-flex lg:px-0 lg:py-6 ${sticky
-                                  ? "text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary"
-                                  : "text-white"
+                                ? "text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary"
+                                : "text-white"
                                 }`}
                             >
                               {menuItem.title}
@@ -227,8 +227,8 @@ const Header = () => {
                                 href={submenuItem.path}
                                 key={i}
                                 className={`block rounded px-4 py-[10px] text-sm ${pathUrl === submenuItem.path
-                                    ? "text-primary"
-                                    : "text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                                  ? "text-primary"
+                                  : "text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
                                   }`}
                               >
                                 {submenuItem.title}
@@ -239,7 +239,7 @@ const Header = () => {
                       ),
                     )}
                   </ul>
-                </nav> */}
+                </nav>
               </div>
               <div className="hidden items-center justify-end pr-16 sm:flex lg:pr-0">
                 {/* theme toggler */}
