@@ -7,9 +7,9 @@ const HomeBlogSection = ({ posts }: any) => {
       <div className="container mx-auto">
         <div className="mb-[60px]">
           <SectionTitle
-            subtitle="Our Blogs"
-            title="Our Recent News"
-            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+            subtitle="Hooks"
+            title="Our Recent Hooks"
+            paragraph="Stop reinventing the wheel! @supunlakmal/hooks provides a wide array of well-tested, easy-to-use hooks covering everything from state management enhancements and side effects to browser APIs and performance optimizations"
             width="640px"
             center
           />
