@@ -75,10 +75,10 @@ body {
 .blog-details h3 {
   @apply mb-6 text-2xl font-bold text-dark dark:text-white sm:text-[28px] sm:leading-[40px];
 }
-blog-details pre {
-  @apply mb-6;
-}
+/* blog-details pre {
+  @apply ;
+} */
 
 .blog-details pre code {
-  @apply text-base leading-relaxed text-body-color dark:text-dark-6;
+  @apply !mb-6 text-base leading-relaxed text-body-color dark:text-dark-6;
 }
