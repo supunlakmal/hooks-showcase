@@ -1,5 +1,6 @@
 import SingleBlog from "@/components/Blog/SingleBlog";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import { hookNames } from "@/const/const";
 import { getAllPosts } from "@/utils/markdown";
 import { Metadata } from "next";
 
@@ -9,8 +10,9 @@ export const metadata: Metadata = {
   description: "Blog grids page description",
 };
 
-const Blog = () => {
-  const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
+const Blog = async () => {
+
+  const posts = await getAllPosts(hookNames);
 
   return (
     <>

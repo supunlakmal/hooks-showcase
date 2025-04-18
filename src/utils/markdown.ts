@@ -1,61 +1,54 @@
-import fs from "fs";
-import matter from "gray-matter";
-import { join } from "path";
+// Base URL for fetching markdown content
+const baseUrl =
+  "https://raw.githubusercontent.com/supunlakmal/hooks/refs/heads/main/docs/";
 
-const postsDirectory = join(process.cwd(), "markdown/blogs");
-
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
-}
-
-export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.mdx$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.mdx`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  type Items = {
-    // [key: string]: string;
-    [key: string]: string | object;
-  };
-
-  const items: any = {};
-
+export async function fetchMarkdownContent(hookName: string) {
   function processImages(content: string) {
-    // You can modify this function to handle image processing
-    // For example, replace image paths with actual HTML image tags
+    // Replace image paths with actual HTML image tags
     return content.replace(/!\[.*?\]\((.*?)\)/g, '<img src="$1" alt="" />');
   }
 
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === "slug") {
-      items[field] = realSlug;
-    }
-    if (field === "content") {
-      // You can modify the content here to include images
-      items[field] = processImages(content);
+  try {
+    // Fetch the markdown content from GitHub
+    const url = `${baseUrl}${hookName}.md`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
     }
 
-    if (field === "metadata") {
-      // Include metadata, including the image information
-      items[field] = { ...data, coverImage: data.coverImage || null };
-    }
+    const content = await response.text();
 
-    if (typeof data[field] !== "undefined") {
-      items[field] = data[field];
-    }
-  });
-
-  return items;
+    // Return a post object with the content and the slug as the title
+    return {
+      title: hookName,
+      slug: hookName,
+      content: processImages(content),
+      excerpt: content.slice(0, 150) + "...",
+      date: new Date().toISOString(), // Default date since not available in raw MD
+      coverImage: `/images/blog/sample.jpg`, // Assuming the image is named after the hook
+    };
+  } catch (error) {
+    console.error(`Error fetching hook ${hookName}:`, error);
+    return {
+      title: hookName,
+      slug: hookName,
+      content: "Failed to load content",
+      excerpt: "Failed to load content",
+      date: new Date().toISOString(),
+    };
+  }
 }
 
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-
-  return posts;
+export async function getAllPosts(hookNames: string[]) {
+  try {
+    // Fetch all posts in parallel for better performance
+    const postsPromises = hookNames.map((hookName) =>
+      fetchMarkdownContent(hookName),
+    );
+    return await Promise.all(postsPromises);
+  } catch (error) {
+    console.error("Error fetching all posts:", error);
+    return [];
+  }
 }

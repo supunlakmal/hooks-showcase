@@ -1,25 +1,19 @@
-import About from "@/components/About";
 import HomeBlogSection from "@/components/Blog/HomeBlogSection";
-import CallToAction from "@/components/CallToAction";
-import Clients from "@/components/Clients";
 import ScrollUp from "@/components/Common/ScrollUp";
-import Contact from "@/components/Contact";
-import Faq from "@/components/Faq";
-import Features from "@/components/Features";
 import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
-import Team from "@/components/Team";
-import Testimonials from "@/components/Testimonials";
+import { hookNames } from "@/const/const";
 import { getAllPosts } from "@/utils/markdown";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Play Next.js - SaaS Starter Kit and Boilerplate for Next.js",
   description: "Free Next.js SaaS Boilerplate and Starter Kit designed and built for SaaS startups. It comes with all necessary integrations, pages, and components you need to launch a feature-rich SaaS websites.",
 };
 
-export default function Home() {
-  const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
+export default async function Home() {
+
+  const posts = await getAllPosts(hookNames);
 
   return (
     <main>
@@ -32,7 +26,9 @@ export default function Home() {
       {/* <Testimonials /> */}
       {/* <Faq /> */}
       {/* <Team /> */}
-      <HomeBlogSection posts={posts} />
+      <Suspense fallback={<div className="container mx-auto px-4 py-16">Loading blog posts...</div>}>
+        <HomeBlogSection posts={posts} />
+      </Suspense>
       {/* <Contact /> */}
       {/* <Clients /> */}
     </main>
