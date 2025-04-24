@@ -1,3 +1,4 @@
+'use client';
 import React, { useCallback } from "react";
 import { useCountdown } from "@supunlakmal/hooks"; // Adjust the import path
 

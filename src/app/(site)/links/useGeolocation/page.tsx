@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { useGeolocation } from "@supunlakmal/hooks";
 

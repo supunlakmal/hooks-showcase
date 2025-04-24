@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { useBreakpoint } from "@supunlakmal/hooks"; // Adjust path
 

@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useRef } from "react";
 import { useClickOutside } from "@supunlakmal/hooks"; // Adjust the import path as needed
 

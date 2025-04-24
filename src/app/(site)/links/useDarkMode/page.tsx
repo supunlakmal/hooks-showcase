@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { useDarkMode } from "@supunlakmal/hooks"; // Adjust path
 import "./styles.css"; // Import your global styles

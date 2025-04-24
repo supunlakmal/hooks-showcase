@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef, CSSProperties } from "react";
 import { useContextMenu } from "@supunlakmal/hooks"; // Adjust path
 

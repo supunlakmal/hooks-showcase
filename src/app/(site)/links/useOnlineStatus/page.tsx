@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { useOnlineStatus } from "@supunlakmal/hooks";
 

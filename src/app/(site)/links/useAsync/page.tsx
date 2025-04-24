@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { useAsync } from "@supunlakmal/hooks"; // Adjust the import path as needed
 

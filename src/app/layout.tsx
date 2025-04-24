@@ -47,7 +47,7 @@ export default function RootLayout({
             defaultTheme="light"
           >
 
-            <Header />
+            {/* <Header /> */}
             {children}
             {/* <Footer /> */}
             <ScrollToTop />

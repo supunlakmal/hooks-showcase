@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from "react";
 import { useCopyToClipboard } from "@supunlakmal/hooks"; // Adjust the import path as needed
 

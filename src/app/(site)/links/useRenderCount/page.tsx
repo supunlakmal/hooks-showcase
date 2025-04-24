@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { useRenderCount } from "@supunlakmal/hooks";
 

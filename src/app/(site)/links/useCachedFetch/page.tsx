@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from "react";
 import { useCachedFetch } from "@supunlakmal/hooks"; // Adjust import path
 
