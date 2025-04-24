@@ -111,7 +111,7 @@ export default async function Post({ params }: Props) {
                 <div className="w-full px-4">
                   <div className="blog-details xl:pr-10">
 
-                    <iframe className="w-full" src={`/links/${slug}`}></iframe>
+                    <iframe className=" w-full h-[400px]" src={`/links/${slug}`}></iframe>
                     <div dangerouslySetInnerHTML={{ __html: content }}></div>
                   </div>
                 </div>
